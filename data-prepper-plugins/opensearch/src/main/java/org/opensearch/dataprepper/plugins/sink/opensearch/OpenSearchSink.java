@@ -314,7 +314,7 @@ public class OpenSearchSink extends AbstractSink<Record<Event>> {
 
     this.indexCache = new IndexCache();
     this.dataStreamDetector = new DataStreamDetector(openSearchClient, indexCache);
-    this.dataStreamIndex = new DataStreamIndex(dataStreamDetector, documentIdField, documentId, routingField, routing);
+    this.dataStreamIndex = new DataStreamIndex(dataStreamDetector, openSearchSinkConfig.getIndexConfiguration());
 
     this.initialized = true;
     LOG.info("Initialized OpenSearch sink");
